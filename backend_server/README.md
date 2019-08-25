@@ -6,6 +6,8 @@
  拷贝到C:\Windows\System32中(参考链接中说还需要拷贝libeay32.dll,我的系统中已经有
  
  此文件)。而且还需要修改php.ini：配置好extension_dir，去掉extension = php_curl.dll前面的分号。
+ 
+ 参考链接:https://jingyan.baidu.com/article/00a07f38909c6b82d028dc83.html
 
 # 2.启动
 
@@ -24,6 +26,8 @@
 　 E:\self\soft\php-7.2.11/php-cgi.exe -b 127.0.0.1:9000 -c E:\self\soft\php-7.2.11/php.ini 
  
 　就是php目录下的 php-cgi.exe和php-ini文件，加上绝对路径，端口号要跟nginx的对上！
+ 
+   参考链接:https://www.cnblogs.com/wwjchina/p/9804576.html
  
 # 3.浏览器访问:
 
