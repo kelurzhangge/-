@@ -1,0 +1,34 @@
+2019/08/25 17:11:19 [error] 13456#4080: *1 CreateFile() "D:\nginx\nginx-1.12.2/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2019/08/25 17:44:26 [error] 3968#1124: *1 upstream timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /SendWallet/info.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:03:10 [error] 4516#1876: *9 FastCGI sent in stderr: "PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in D:\nginx\nginx-1.12.2\html\sendWallet\demo.php on line 166" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php?sendType=transfers HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:04:45 [error] 4516#1876: *9 FastCGI sent in stderr: "PHP Parse error:  syntax error, unexpected '$SendTransfers' (T_VARIABLE), expecting ',' or ';' in D:\nginx\nginx-1.12.2\html\sendWallet\demo.php on line 146" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:05:20 [error] 4516#1876: *9 FastCGI sent in stderr: "PHP Parse error:  syntax error, unexpected '$mch_billno' (T_VARIABLE), expecting ',' or ';' in D:\nginx\nginx-1.12.2\html\sendWallet\demo.php on line 36" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:08:40 [error] 4516#1876: *27 FastCGI sent in stderr: "PHP Parse error:  syntax error, unexpected '$mch_billno' (T_VARIABLE), expecting ',' or ';' in D:\nginx\nginx-1.12.2\html\sendWallet\demo.php on line 37" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:09:42 [error] 4516#1876: *27 FastCGI sent in stderr: "PHP Parse error:  syntax error, unexpected ',' in D:\nginx\nginx-1.12.2\html\sendWallet\demo.php on line 55" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:10:44 [error] 4516#1876: *27 FastCGI sent in stderr: "PHP Parse error:  syntax error, unexpected '$sendType' (T_VARIABLE), expecting ')' in D:\nginx\nginx-1.12.2\html\sendWallet\demo.php on line 55" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:11:13 [error] 4516#1876: *27 FastCGI sent in stderr: "PHP Parse error:  syntax error, unexpected 'switch' (T_SWITCH), expecting ',' or ';' in D:\nginx\nginx-1.12.2\html\sendWallet\demo.php on line 58" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:18:07 [error] 4516#1876: *48 FastCGI sent in stderr: "PHP Fatal error:  Uncaught Error: Call to undefined function curl_init() in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php:79
+Stack trace:
+#0 D:\nginx\nginx-1.12.2\html\sendWallet\demo.php(167): walletWeixinUtil::curl_post_ssl('https://api.mch...', '            <xm...')
+#1 {main}
+  thrown in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php on line 79" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:29:54 [error] 10660#10992: *1 FastCGI sent in stderr: "PHP Fatal error:  Uncaught Error: Call to undefined function curl_init() in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php:79
+Stack trace:
+#0 D:\nginx\nginx-1.12.2\html\sendWallet\demo.php(167): walletWeixinUtil::curl_post_ssl('https://api.mch...', '            <xm...')
+#1 {main}
+  thrown in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php on line 79" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:30:03 [error] 10660#10992: *1 FastCGI sent in stderr: "PHP Fatal error:  Uncaught Error: Call to undefined function curl_init() in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php:79
+Stack trace:
+#0 D:\nginx\nginx-1.12.2\html\sendWallet\demo.php(167): walletWeixinUtil::curl_post_ssl('https://api.mch...', '            <xm...')
+#1 {main}
+  thrown in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php on line 79" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 18:30:07 [error] 10660#10992: *1 FastCGI sent in stderr: "PHP Fatal error:  Uncaught Error: Call to undefined function curl_init() in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php:79
+Stack trace:
+#0 D:\nginx\nginx-1.12.2\html\sendWallet\demo.php(167): walletWeixinUtil::curl_post_ssl('https://api.mch...', '            <xm...')
+#1 {main}
+  thrown in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php on line 79" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2019/08/25 19:17:01 [error] 10660#10992: *8 FastCGI sent in stderr: "PHP Fatal error:  Uncaught Error: Call to undefined function curl_init() in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php:79
+Stack trace:
+#0 D:\nginx\nginx-1.12.2\html\sendWallet\demo.php(167): walletWeixinUtil::curl_post_ssl('https://api.mch...', '            <xm...')
+#1 {main}
+  thrown in D:\nginx\nginx-1.12.2\html\sendWallet\sendWallet_app.php on line 79" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /sendWallet/demo.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
