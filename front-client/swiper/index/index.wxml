@@ -37,7 +37,7 @@
               <!--recordDetails.wxml-->
               <!--<view class="container">
                 <view class="userinfo">-->
-                    <view class='textxiexie'>谢谢参与！</view>
+                    <view wx:if="{{xiexiepage==1}}"class='textxiexie'>谢谢参与！</view>
                   <!--<button class='sqbtn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 加载中••• </button>
                   <block wx:else>-->
                     <!--<view class='upper'>

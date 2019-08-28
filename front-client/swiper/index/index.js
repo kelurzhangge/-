@@ -75,7 +75,8 @@ Page({
     ],
     roll: false,   // 领取开关
     //relay: '给你发了一个拼图考验，立刻去挑战吧 >>',    // 转发后显示的提示语
-    images_prefix_path: 'http://localhost'
+    images_prefix_path: 'http://localhost',
+    xiexiepage: 0
   },/*,
   changeProperty: function (e) {
     var propertyName = e.currentTarget.dataset.propertyName
@@ -419,7 +420,8 @@ Page({
   clearNnd: function () {
     var that = this;
     that.setData({
-      toend: false
+      toend: false,
+      xiexiepage: 1
     })
     /*
     setTimeout(function () {
