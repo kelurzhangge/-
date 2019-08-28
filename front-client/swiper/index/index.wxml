@@ -37,6 +37,7 @@
               <!--recordDetails.wxml-->
               <!--<view class="container">
                 <view class="userinfo">-->
+                    <view class='textxiexie'>谢谢参与！</view>
                   <!--<button class='sqbtn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 加载中••• </button>
                   <block wx:else>-->
                     <!--<view class='upper'>
@@ -81,7 +82,7 @@
                       <view><text bindtap='tel'>未领取的金额，将于24小时后退回至小程序余额</text></view>
                     </view>-->
                   <!--</block>-->
-              <!--  </view>
+                <!--</view>
               </view>-->
               <view class='cue {{tocue?"on":""}}'>
                 <view class='cue_top'><image src='{{images_prefix_path}}/images/time2.png'></image></view>
