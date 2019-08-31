@@ -15,7 +15,8 @@
           </view>
         </view>
         <view class="rain-score">
-          <view>金币:{{showScore}}</view>
+          <!--<view>金币:{{showScore}}</view>-->
+          <view>人民币(元):{{showMoney}}</view>
           <view class='scoreChangeClass'  animation="{{animationData}}">{{showChangeScore>0 ? "+":""}}{{showChangeScore}}</view>
         </view>
       </cax>
@@ -25,14 +26,16 @@
         <view class='shadeView'>
           <view class="shadeView-top">恭喜您获得</view>
           <view class='shadeView_scoreView'>
-            <text>{{showScore}}</text>
-            <text>金币</text>
+            <!--<text>{{showScore}}</text>-->
+            <text>{{showMoney}}</text>
+            <!--<text>金币</text>-->
+            <text>元人民币</text>
           </view>
           <view class='shadeView_gameOverBtn'>
-            <view class="explain">金币已存入您的账户中</view>
-            <view class="explain">可用于下单时抵扣商品金额</view>
+            <view class="explain">红包已存入您的账户中</view>
+            <!--<view class="explain">可用于下单时抵扣商品金额</view>-->
             <view class="btn" bindtap="finish">我知道了</view>
-            <view class="rule" bindtap="checkrule">查看规则></view>
+            <!--<view class="rule" bindtap="checkrule">查看规则></view>-->
           </view>
         </view>
       </view>
