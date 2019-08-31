@@ -1,55 +1,50 @@
 <!--index.wxml-->
-<!--<view class="container">-->
-
-  <!--swiper-->
-  <view class="page-body">
-    <view class="page-section page-section-spacing swiper">
-      <swiper
-        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
-        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
-        <block wx:for-items="{{ViewCount}}" wx:key="*this">
-          <swiper-item>
-            <block wx:if="{{item==1}}">
-              <view class='imagesize'>
-                <image src="{{imgUrls[0]}}"/>
-              </view>
-            </block>
-            <block wx:elif="{{item==2}}">
-              <view class='imagesize'>
-                <image src="{{imgUrls[1]}}"/>
-              </view>
-            </block>
-            <block wx:elif="{{item==3}}">
-              <view class='imagesize'>
-                <image src="{{imgUrls[2]}}"/>
-              </view>
-            </block>
-            <block wx:elif="{{item==4}}">
-              <view class='imagesize'>
-                <image src="{{imgUrls[3]}}"/>
-              </view>
-            </block>
-            <block wx:elif="{{item==5}}">
-              <view class='imagesize'>
-                <image src="{{imgUrls[4]}}"/>
-              </view>
-            </block>
-            <block wx:elif="{{item==6}}">
-              <view class='imagesize'>
-                <image src="{{imgUrls[5]}}"/>
-              </view>
-            </block>
-            <block wx:elif="{{item==7}}">
-              <view class='imagesize'>
-                <image src="{{imgUrls[6]}}"/>
-                <image class="imagerdcsize" bindtap="toPacketRain" src="{{imgUrls[7]}}"/>
-              </view>
-            </block>
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
+<!--swiper-->
+<view class="page-body">
+  <view class="page-section page-section-spacing swiper">
+    <swiper
+      indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+      interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+      <block wx:for-items="{{ViewCount}}" wx:key="*this">
+        <swiper-item>
+          <block wx:if="{{item==1}}">
+            <view class='imagesize'>
+              <image src="{{imgUrls[0]}}"/>
+            </view>
+          </block>
+          <block wx:elif="{{item==2}}">
+            <view class='imagesize'>
+              <image src="{{imgUrls[1]}}"/>
+            </view>
+          </block>
+          <block wx:elif="{{item==3}}">
+            <view class='imagesize'>
+              <image src="{{imgUrls[2]}}"/>
+            </view>
+          </block>
+          <block wx:elif="{{item==4}}">
+            <view class='imagesize'>
+              <image src="{{imgUrls[3]}}"/>
+            </view>
+          </block>
+          <block wx:elif="{{item==5}}">
+            <view class='imagesize'>
+              <image src="{{imgUrls[4]}}"/>
+            </view>
+          </block>
+          <block wx:elif="{{item==6}}">
+            <view class='imagesize'>
+              <image src="{{imgUrls[5]}}"/>
+            </view>
+          </block>
+          <block wx:elif="{{item==7}}">
+            <view class='imagesize'>
+              <image src="{{imgUrls[6]}}"/>
+              <image class="imagerdcsize" bindtap="toPacketRain" src="{{imgUrls[7]}}"/>
+            </view>
+          </block>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
-
-
-<!--</view>-->
+</view>
