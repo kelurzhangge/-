@@ -1,5 +1,5 @@
 {
-	"description": "项目配置文件。",
+	"description": "项目配置文件",
 	"packOptions": {
 		"ignore": []
 	},
@@ -8,12 +8,18 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
+	"libVersion": "2.8.1",
 	"appid": "wx503d382e1dc0a087",
-	"projectname": "swiper%E7%BB%84%E4%BB%B6%E7%A4%BA%E4%BE%8B",
+	"projectname": "lvdi_project",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

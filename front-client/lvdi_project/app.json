@@ -1,11 +1,12 @@
 {
   "pages": [
-    "index/index"
+    "pages/index/index",
+    "pages/packetRain/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "swiper",
+    "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
