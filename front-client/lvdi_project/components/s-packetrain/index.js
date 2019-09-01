@@ -62,8 +62,11 @@ Component({
    * 组件的初始数据
    */
   data: {
-    score: 0, // 总分数
-    showScore: 0,
+    //score: 0, // 总分数
+    //showScore: 0,
+    money: 0, //总金额
+    showMoney: 0,//查看当前所得到的金额，单位:元
+    //showTotalMoney: 0, //查看最终所得到的金额，单位:元
     showChangeScore: 0,
     gameTimer: '', // 游戏Timer
     createPacketTimer: '', // 创建红包Timer
@@ -181,10 +184,15 @@ Component({
           changeOfScore = parseFloat(Math.random() * this.data.max + this.data.min)
         }
         // 当前总金额
-        let nowScore = that.data.score + changeOfScore
+        //let nowScore = that.data.score + changeOfScore
+        let nowMoney = that.data.money + changeOfScore
         that.setData({
-          score: nowScore,
-          showScore: nowScore.toFixed(this.data.decimal),
+          //score: nowScore,
+          //showScore: nowScore.toFixed(this.data.decimal),
+          money: nowMoney,
+          //showMoney: nowMoney.toFixed(this.data.decimal),//单位:分
+          showMoney: nowMoney / 100, //单位:元
+          //showTotalMoney: nowMoney / 100, //单位:元
           showChangeScore: changeOfScore.toFixed(this.data.decimal)
         })
       })

@@ -1,11 +1,11 @@
-<view class="page-body">
+<!--<view class="page-body">
     <view class="page-section page-section-spacing swiper">
       <view class='imagesize'>
         <image src="/assets/images/bj.jpg"/>
         <view class="kind-list-text">谢谢参与！</view>
       </view>
   </view>
-</view>
+</view>-->
 <!-- 红包雨组件 -->
 <s-packetrain visible="{{visible}}" total="{{total}}"
  mode="{{mode}}" createSpeed="{{createSpeed}}" 

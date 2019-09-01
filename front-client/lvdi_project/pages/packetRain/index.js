@@ -36,14 +36,20 @@ Page({
   // 结束
   success() {
     console.log('bind:finish')
-    this.setData({
+    /*this.setData({
       visible: false //  隐藏界面
+    })*/
+    wx.navigateTo({
+      url: '/pages/index/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
-  },
+  }/*,
   onShareAppMessage: function(ops) {
     return {
       title: 'sol-红包雨',
       path: '/pages/packetRain/index'
     }
-  }
+  }*/
 })
