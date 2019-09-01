@@ -22,7 +22,11 @@ Page({
     interval: 2000,
     duration: 500,
     previousMargin: 0,
-    nextMargin: 0
+    nextMargin: 0,
+
+
+    isCanAccessPackageRain: true,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   toPacketRain: function() {
     wx.navigateTo({

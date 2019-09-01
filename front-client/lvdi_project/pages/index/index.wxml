@@ -1,4 +1,5 @@
 <!--index.wxml-->
+
 <!--swiper-->
 <view class="page-body">
   <view class="page-section page-section-spacing swiper">
@@ -38,10 +39,20 @@
             </view>
           </block>
           <block wx:elif="{{item==7}}">
-            <view class='imagesize'>
-              <image src="{{imgUrls[6]}}"/>
-              <image class="imagerdcsize" bindtap="toPacketRain" src="{{imgUrls[7]}}"/>
-            </view>
+            <block wx:if="{{!isCanAccessPackageRain}}">
+              <!--<button class='sqbtn' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 加载中••• </button>-->
+              <view class='imagesize'>
+                <image src="{{imgUrls[6]}}"/>
+                <view class="kind-list-text">您的红包雨机会已经用完</view>
+                <view class="kind-list-text" style="margin-top: 40px;">谢谢参与~</view>
+              </view>
+            </block>
+            <block wx:else>
+              <view class='imagesize'>
+                <image src="{{imgUrls[6]}}"/>
+                <image class="imagerdcsize" bindtap="toPacketRain" src="{{imgUrls[7]}}"/>
+              </view>
+            </block>
           </block>
         </swiper-item>
       </block>

@@ -32,7 +32,7 @@
 .kind-list-text {
   display: block;
   position: absolute;
-  font-size: 32rpx;
+  font-size: 60rpx;
   text-align: center;
 
 }
