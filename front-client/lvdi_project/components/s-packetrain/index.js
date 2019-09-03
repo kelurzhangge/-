@@ -1,4 +1,7 @@
 // components/s-packetrain/index.js
+//获取应用实例
+const app = getApp()
+
 import cax from './cax/index.js'
 const info = wx.getSystemInfoSync()
 const innerAudioContext = wx.createInnerAudioContext()
@@ -263,6 +266,33 @@ Component({
       this.setData({
         isGameOver: true
       })
+      // here, we send request to backend server.
+      var tmp_wxOpenId = (wx.getStorageSync('wxOpenId'));
+      console.log("tmp_wxOpenId is "+tmp_wxOpenId);
+      if (tmp_wxOpenId) {
+        wx.request({
+          //后台接口地址
+          url: 'http://127.0.0.1/sendWallet/demo.php?sendType=transfers',
+          data: {
+            wxOpenId: tmp_wxOpenId
+          },
+          method: 'GET',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          },
+          success: function (res) {
+            console.log("res is:" + res.data.return_code);
+            //if (res.data.return_code == 'SUCCESS') {
+              console.log("insert success!")
+              //app.globalData.isCanAccessPackageRain = 0;
+              //wx.setStorageSync('isCanAccessPackageRain', false);
+            //}
+          }
+        })
+      } else {
+        //TODO. 显示“网络错误”
+
+      }
     },
     // 点击我知道了
     finish() {

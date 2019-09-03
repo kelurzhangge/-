@@ -224,12 +224,13 @@ class walletWeixinUtil
      * @param $postFields post的数据
      * @return 接口返回的数据
      */    
-    public static function curlGet($url, $post = false, $postFields = array(), $timeout = 2) {
+    public static function curlGet($url, $post = false, $postFields = array(), $timeout = 5) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         if ($post && !empty($postFields)) {
             curl_setopt($ch, CURLOPT_POST, 1);
@@ -239,7 +240,72 @@ class walletWeixinUtil
         $data = curl_exec($ch);
         curl_close($ch);
         return $data;
-    }           
+    }
+
+	/*
+	 * 查询是否可以进入红包雨界面
+	 */
+	public static function IsCanGetRedPackage ($wxOpenId) {
+		$result = "False";
+		$conn = mysqli_connect(WxPayConf_pub::dbhost, WxPayConf_pub::dbuser, WxPayConf_pub::dbpass);
+		if (!$conn) {
+			die('连接失败:' . mysqli_error($conn));
+		}
+		//设置编码，防止中文乱码
+		mysqli_query($conn, "set names utf8");
+		
+		$sql = 'SELECT openId
+				FROM sendwallet_tbl
+				WHERE openId="'. $wxOpenId . '"';
+		mysqli_select_db($conn, 'sendwallet_db');
+		$retval = mysqli_query($conn, $sql);
+		if (!$retval) {
+			die('无法读取数据:' . mysqli_error($conn));
+		}
+		
+		// Here, only one record.
+		if ($row = mysqli_fetch_array($retval, MYSQLI_ASSOC)) {
+			if (isset($row['openId'])) {
+				$result = False;
+			}
+		} else {
+			$result = True; //数据为空，说明是用户初次进入
+		}
+		//释放内存
+		mysqli_free_result($retval);
+		mysqli_close($conn);
+			
+		return $result;
+	}
+	
+	/*
+	 * 向数据库中插入此OpenId记录
+	 */
+	public static function insertOpenIdToMysql($wxOpenId) {
+		$result = False;
+		$conn = mysqli_connect(WxPayConf_pub::dbhost, WxPayConf_pub::dbuser, WxPayConf_pub::dbpass);
+		if (!$conn) {
+			die('连接失败:' . mysqli_error($conn));
+		}
+		//设置编码，防止中文乱码
+		mysqli_query($conn, "set names utf8");
+		
+		$sql = 'INSERT INTO sendwallet_tbl (id, openId, redpacketNumber)
+				VALUES (null, "' . $wxOpenId . '", "0.05")';
+		mysqli_select_db($conn, 'sendwallet_db');
+		$retval = mysqli_query($conn, $sql);
+		
+		if(! $retval )
+		{
+		  die('无法插入数据: ' . mysqli_error($conn));
+		} else {
+			$result = True;
+		}
+		//释放内存
+		mysqli_close($conn);
+		return $result;
+		
+	}
 
 
 

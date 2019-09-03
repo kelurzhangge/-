@@ -41,13 +41,14 @@ $wishing    = isset($_REQUEST['wishing']) 	 ? htmlspecialchars(trim($_REQUEST['w
 $sendType    = isset($_REQUEST['sendType']) 	 ? htmlspecialchars(trim($_REQUEST['sendType']))    : ''; // 发送类型
 $sendNum     =  isset($_REQUEST['sendNum']) ? htmlspecialchars(trim($_REQUEST['sendNum'])) : '';// 发送红包数量（裂变）
 
-echo "before new sendWallet<br>";
+$wxcode    = isset($_REQUEST['wxCode']) 	 ? htmlspecialchars(trim($_REQUEST['wxCode']))    : ''; // 小程序的code
+$wxOpenId    = isset($_REQUEST['wxOpenId']) 	 ? htmlspecialchars(trim($_REQUEST['wxOpenId']))    : ''; // 小程序用户的OpenId
+
 $sendWallet_app = new sendWallet();
-echo "after new sendWallet<br>";
 // 如果金额小于1元时 使用企业付款  否则 使用红包功能
-if(empty($sendType)){
-	$sendType = $amount < 100 ? 'transfers' : 'redpack';
-}
+//if(empty($sendType)){
+//	$sendType = $amount < 100 ? 'transfers' : 'redpack';
+//}
 
 //redpack => 红包接口
 //group_redpack => 裂变红包
@@ -143,7 +144,7 @@ switch ($sendType) {
 
 
 	case "transfers";
-	        echo "enter case transfer";
+	        /*
 			$SendTransfers = $sendWallet_app;  //红包 与 企业付款公用 类
 			//$SendTransfers->set_mch_appid( WxPayConf_pub::APPID ); 				// appid  默认已在配置文件中配置
 			//$SendTransfers->set_mchid( WxPayConf_pub::MCHID );    				// 商户号 默认已在配置文件中配置
@@ -163,12 +164,46 @@ switch ($sendType) {
 			$res  = @simplexml_load_string($data,NULL,LIBXML_NOCDATA);
 
 
-			if (!empty($res)){
-				echo json_encode($res);
-			}else{
+			if (!empty($res)){*/
+				//echo json_encode($res);
+				// 若数据库中不存在openId的记录，则插入此openId到数据库
+				if ($wxOpenId != '' && walletWeixinUtil::IsCanGetRedPackage($wxOpenId)) {
+					if (walletWeixinUtil::insertOpenIdToMysql($wxOpenId) == True) {
+						echo json_encode( array('return_code' => 'SUCCESS', 'return_ext' => array()) );
+					}
+				} else {
+					echo json_encode( array('return_code' => 'FAIL', 'return_msg' => 'transfers_interface_error', 'return_ext' => array()) );
+				}	
+			/*}else{
 				echo json_encode( array('return_code' => 'FAIL', 'return_msg' => 'transfers_interface_error', 'return_ext' => array()) );						
-			}
+			}*/
 			exit;
+		break;
+	case "IsCanGetRedPackage";
+		if ($wxcode=="")
+        {
+            die("wxcode is NULL");
+			exit;
+        }
+		$tmp_openid = '';
+		$url = "https://api.weixin.qq.com/sns/jscode2session?appid=".WxPayConf_pub::APPID."&secret=".WxPayConf_pub::APPSECRET."&js_code=".$wxcode."&grant_type=authorization_code";
+		$res = walletWeixinUtil::curlGet($url);
+		if (!empty($res)){
+			$json_obj = json_decode($res,true);
+			if( isset( $json_obj['openid'] ) ){
+				$tmp_openid = $json_obj["openid"];
+			}
+		}
+		if ($tmp_openid == '') {
+			echo json_encode( array('return_code' => 'FAIL', 'return_msg' => 'IsCanGetRedPackage_interface_error', 'return_ext' => array()) );
+		} else {
+			if (walletWeixinUtil::IsCanGetRedPackage($tmp_openid) == True) {
+				echo json_encode( array('return_code' => 'SUCCESS', 'wxOpenId' => $tmp_openid, 'return_ext' => array()) );
+			} else {
+				echo json_encode( array('return_code' => 'FAIL', 'return_msg' => 'IsCanGetRedPackage_interface_error', 'return_ext' => array()) );
+			}
+		}
+		exit;
 		break;
 		# code...
 		break;

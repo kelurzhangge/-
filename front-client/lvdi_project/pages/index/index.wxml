@@ -39,8 +39,7 @@
             </view>
           </block>
           <block wx:elif="{{item==7}}">
-            <block wx:if="{{!isCanAccessPackageRain}}">
-              <!--<button class='sqbtn' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 加载中••• </button>-->
+            <block wx:if="{{false == isCanAccessPackageRain}}">
               <view class='imagesize'>
                 <image src="{{imgUrls[6]}}"/>
                 <view class="kind-list-text">您的红包雨机会已经用完</view>
